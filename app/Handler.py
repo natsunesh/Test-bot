@@ -20,7 +20,7 @@ async def start(message:Message):
 
 @router.message(F.text == "БД")
 async def base_data(message: Message):
-    await message.answer ("выберите ваш курс", reply_markup=kb.BaseData)
+    await message.answer("выберите ваш курс", reply_markup=kb.BaseData)
 
 @router.message(F.text == "Алгоритмитизация")
 async def base_data(message: Message):
@@ -38,11 +38,11 @@ async def about(message: Message):
 ##Курсы по БД
 @router.callback_query(F.data == ("kbnote1"))
 async def bnote1(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 1 курс по базе данных ", reply_markup= kb.bkurs1 )
+    await callback.message.edit_text(" вы выбрали 1 курс по базе данных ", reply_markup= kb.bkurs1 )
 
 @router.callback_query(F.data ==  ("kbnote2"))
 async def bnote2(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 2 курс по базе данных ", reply_markup=kb.bkurs2 )
+    await callback.message.edit_text(" вы выбрали 2 курс по базе данных ", reply_markup=kb.bkurs2 )
 
 @router.callback_query(F.data == ("kbnote3"))
 async def bnote3(callback: CallbackQuery):
