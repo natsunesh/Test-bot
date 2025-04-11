@@ -46,11 +46,11 @@ async def bnote2(callback: CallbackQuery):
 
 @router.callback_query(F.data == ("kbnote3"))
 async def bnote3(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 3 курс по базе данных ", reply_markup=kb.bkurs3 )
+    await callback.message.edit_text(" вы выбрали 3 курс по базе данных ", reply_markup=kb.bkurs3 )
 
 @router.callback_query(F.data == ("kbnote4"))
 async def bnote4(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 4 курс по базе данных ", reply_markup=kb.bkurs4 )
+    await callback.message.edit_text(" вы выбрали 4 курс по базе данных ", reply_markup=kb.bkurs4 )
 
 ##Лекции 1 курса по БД
 @router.callback_query(F.data == ("k1bnote1"))
@@ -127,19 +127,19 @@ async def bnote4(callback: CallbackQuery):
 ##Курсы по Алгоритмам
 @router.callback_query(F.data == ("kanote1"))
 async def bnote1(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 1 курс по алгоритмитизации систем ", reply_markup=kb.akurs1)
+    await callback.message.edit_text(" вы выбрали 1 курс по алгоритмитизации систем ", reply_markup=kb.akurs1)
 
 @router.callback_query(F.data == ("kanote2"))
 async def bnote2(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 2 курс по алгоритмитизации систем ", reply_markup=kb.akurs2 )
+    await callback.message.edit_text(" вы выбрали 2 курс по алгоритмитизации систем ", reply_markup=kb.akurs2 )
 
 @router.callback_query(F.data == ("kanote3"))
 async def bnote3(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 3 курс по алгоритмитизации систем ", reply_markup=kb.akurs3 )
+    await callback.message.edit_text(" вы выбрали 3 курс по алгоритмитизации систем ", reply_markup=kb.akurs3 )
 
 @router.callback_query(F.data == ("kanote4"))
 async def bnote4(callback: CallbackQuery):
-    await callback.message.answer(" вы выбрали 4 курс по алгоритмитизации систем ", reply_markup=kb.akurs4 )
+    await callback.message.edit_text(" вы выбрали 4 курс по алгоритмитизации систем ", reply_markup=kb.akurs4 )
 
 #Лекции 1 курса
 @router.callback_query(F.data == ("k1anote1"))
