@@ -34,6 +34,16 @@ async def cashe(message: Message):
 async def about(message: Message):
     await message.answer("Этот бот предназначен для упрощения обучения базе данным и алгоритмитизации систем начиная от первого курса и заканчивая четвёртым. Считайте его вашим личным помощником :)   ")
 
+#Переход в начало
+@router.message(F.text == "В главное меню")
+async def in_started (message: Message):
+    await message.answer("Главное меню", reply_markup=kb.Main)
+
+# Обработчик для кнопки "В главное меню" в инлайн-клавиатурах
+@router.callback_query(F.data == "in_started")
+async def in_started_callback(callback: CallbackQuery):
+    await callback.message.answer("Главное меню", reply_markup=kb.Main)
+    await callback.answer()
 
 ##Курсы по БД
 @router.callback_query(F.data == ("kbnote1"))
