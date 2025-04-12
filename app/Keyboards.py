@@ -1,6 +1,7 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                              InlineKeyboardMarkup, InlineKeyboardButton)
 
+
 from aiogram.utils.keyboard import InlineKeyboardBuilder,ReplyKeyboardBuilder
 
 
@@ -10,6 +11,18 @@ Main =  ReplyKeyboardMarkup (keyboard = [[KeyboardButton(text= 'БД')],
                                           KeyboardButton(text= "О боте")]],
                                 resize_keyboard=True, 
                                 input_field_placeholder="Выберите кнопку")
+
+# Отправка номера телефона
+
+def request_phone_number():
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=[[KeyboardButton(text="Отправить номер телефона", request_contact=True)]],
+        resize_keyboard=True,
+        one_time_keyboard=True
+    )
+    return keyboard
+
+    
 
 BaseData = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text= "Курс 1" , callback_data="kbnote1")],
                                                 [InlineKeyboardButton(text= "Курс 2", callback_data="kbnote2")],
