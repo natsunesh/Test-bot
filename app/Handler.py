@@ -42,7 +42,27 @@ async def in_started (message: Message):
 # Обработчик для кнопки "В главное меню" в инлайн-клавиатурах
 @router.callback_query(F.data == "in_started")
 async def in_started_callback(callback: CallbackQuery):
-    await callback.message.answer("Главное меню", reply_markup=kb.Main)
+    # Determine the previous state and provide the appropriate reply_markup
+    if callback.data == "in_started":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.BaseData)
+    elif callback.data == "kbnote1":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.BaseData)
+    elif callback.data == "kbnote2":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.BaseData)
+    elif callback.data == "kbnote3":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.BaseData)
+    elif callback.data == "kbnote4":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.BaseData)
+    elif callback.data == "kanote1":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.Algoritm)
+    elif callback.data == "kanote2":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.Algoritm)
+    elif callback.data == "kanote3":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.Algoritm)
+    elif callback.data == "kanote4":
+        await callback.message.answer("Выберите ваш курс", reply_markup=kb.Algoritm)
+    else:
+        await callback.message.answer("Главное меню", reply_markup=kb.Main)
     await callback.answer()
 
 ##Курсы по БД
