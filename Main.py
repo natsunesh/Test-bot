@@ -2,6 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 
 from app.Handler import router
+from app.DataBase import Models
 
 
 
@@ -13,6 +14,7 @@ async def main():
     dp  = Dispatcher()
     dp.include_router(router)
     await dp.start_polling(bot)
+    Models.db
 
 if __name__ =='__main__':
     try:
