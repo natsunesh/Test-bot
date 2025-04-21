@@ -1,14 +1,24 @@
-import sqlite3
+from sqlalchemy import BigInteger
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
-db = sqlite3.connect("users_info.db")
+engine = create_async_engine(url='sqlite+aiosqlite:///db.info_users')
 
-cursor = db.cursor()
-# cursor.execute(''' create table users(
-#                 id int,
-#                 user_id text,
-#                 balance int,
-#                 number int
-#                )''')
+async_session = async_sessionmaker(engine)
 
-db.commit()
-db.close()
+class Base(AsyncAttrs,DeclarativeBase):
+    pass
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id = mapped_column(BigInteger)
+    balance: Mapped[int] = mapped_column()
+    number = mapped_column(BigInteger)
+
+async def async_main():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
